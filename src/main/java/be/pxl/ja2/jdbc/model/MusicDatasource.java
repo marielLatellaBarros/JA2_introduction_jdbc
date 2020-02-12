@@ -21,18 +21,18 @@ public class MusicDatasource {
 	private static final String USER_PASSWORD = "password";
 
 	public static final String TABLE_ALBUMS = "albums";
-	public static final String COLUMN_ALBUM_ID = "_id";
-	public static final String COLUMN_ALBUM_NAME = "name";
-	public static final String COLUMN_ALBUM_ARTIST = "artist";
+	private static final String COLUMN_ALBUM_ID = "_id";
+	private static final String COLUMN_ALBUM_NAME = "name";
+	private static final String COLUMN_ALBUM_ARTIST = "artist";
 
-	private static final String TABLE_ARTISTS = "artists";
+	public static final String TABLE_ARTISTS = "artists";
 	private static final String COLUMN_ARTIST_ID = "_id";
 	private static final String COLUMN_ARTIST_NAME = "name";
 
 	public static final String TABLE_SONGS = "songs";
-	public static final String COLUMN_SONG_TRACK = "track";
-	public static final String COLUMN_SONG_TITLE = "title";
-	public static final String COLUMN_SONG_ALBUM = "album";
+	private static final String COLUMN_SONG_TRACK = "track";
+	private static final String COLUMN_SONG_TITLE = "title";
+	private static final String COLUMN_SONG_ALBUM = "album";
 
 	public static final int ORDER_BY_NONE = 1;
 	public static final int ORDER_BY_ASC = 2;
@@ -139,6 +139,22 @@ public class MusicDatasource {
 		} catch (SQLException e) {
 			System.out.println("Query failed: " + e.getMessage());
 			return null;
+		}
+	}
+
+	public int getCount(String table) {
+		String sql = "SELECT COUNT(*) AS count FROM " + table;
+		try (Statement statement = conn.createStatement();
+		     ResultSet results = statement.executeQuery(sql)) {
+			if (results.next()) {
+				int count = results.getInt("count");
+				return count;
+			}
+			return -1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Query failed: " + e.getMessage());
+			return -1;
 		}
 	}
 
