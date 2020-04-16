@@ -4,7 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-//Demo1
+
+/** Demo1:
+ * 3.1 Inleiding
+ * 3.2 De databaseserver
+ * 3.3 Verbinding maken met een database
+ * 3.4.1 Een statement creëren
+ */
 public class CreateTable {
 
     public static void main(String[] args) {

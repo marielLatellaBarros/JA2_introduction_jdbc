@@ -1,7 +1,13 @@
 package be.pxl.ja2.jdbc;
 
 import java.sql.*;
-//Demo2
+
+/** Demo2:
+ * 3.4.2 Gegevens uit een database opvragen
+ * 3.4.3 Gegevens wijzigen in een database
+ * 3.4.4 Gegevens toevoegen aan een database
+ */
+
 public class InsertUpdateDelete {
 
 	public static void main(String[] args) {
