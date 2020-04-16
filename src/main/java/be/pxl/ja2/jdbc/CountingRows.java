@@ -2,6 +2,11 @@ package be.pxl.ja2.jdbc;
 
 import be.pxl.ja2.jdbc.model.MusicDatasource;
 
+/** Demo5:
+ * Check if connection to database is open
+ * Get the totals for albums, songs and artists (SELECT COUNT)
+ * Close the connection
+ */
 public class CountingRows {
 	public static void main(String[] args) {
 		MusicDatasource datasource = new MusicDatasource();
