@@ -5,6 +5,12 @@ import be.pxl.ja2.jdbc.model.MusicDatasource;
 
 import java.util.List;
 
+/** Demo3:
+ * Check if connection to database is open
+ * Use preparedStatements to load data
+ * Get a list of all artists
+ * close the connection
+ */
 public class QueryForArtists {
 
 	public static void main(String[] args) {
