@@ -47,7 +47,7 @@ public class MusicDatasource {
 	public static final String QUERY_SONG_INFO = "SELECT ar.name, al.name, s.track, s.title FROM albums al\n" +
 			"  INNER JOIN artists ar ON ar._id = al.artist\n" +
 			"  INNER JOIN songs s ON al._id = s.album\n" +
-			"WHERE s.title = '";
+			"WHERE s.title = ? ";
 
 	public static final String INSERT_ARTIST = "INSERT INTO " + TABLE_ARTISTS +
 			'(' + COLUMN_ARTIST_NAME + ") VALUES(?)";
@@ -192,24 +192,21 @@ public class MusicDatasource {
 	}
 
 	public List<SongArtist> querySongInfo(String title) {
+		
+		     try (PreparedStatement statement = conn.prepareStatement(QUERY_SONG_INFO)){
+				 statement.setString(1, title);
+				 ResultSet results = statement.executeQuery(); {
 
-		StringBuilder sb = new StringBuilder(QUERY_SONG_INFO);
-		sb.append(title);
-		sb.append("'");
-		try (Statement statement = conn.createStatement();
-		     ResultSet results = statement.executeQuery(sb.toString())) {
-
-			List<SongArtist> songArtists = new ArrayList<>();
-			while (results.next()) {
-				SongArtist songArtist = new SongArtist();
-				songArtist.setArtistName(results.getString(1));
-				songArtist.setAlbumName(results.getString(2));
-				songArtist.setTrack(results.getInt(3));
-				songArtists.add(songArtist);
-			}
-
-			return songArtists;
-
+					 List<SongArtist> songArtists = new ArrayList<>();
+					 while (results.next()) {
+						 SongArtist songArtist = new SongArtist();
+						 songArtist.setArtistName(results.getString(1));
+						 songArtist.setAlbumName(results.getString(2));
+						 songArtist.setTrack(results.getInt(3));
+						 songArtists.add(songArtist);
+					 }
+					 return songArtists;
+			 }
 		} catch (SQLException e) {
 			System.out.println("Query failed: " + e.getMessage());
 			return null;

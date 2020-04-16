@@ -5,7 +5,12 @@ import be.pxl.ja2.jdbc.model.SongArtist;
 
 import java.util.List;
 import java.util.Scanner;
-
+/** Demo6:
+ * Check if connection to database is open
+ * Avoid SQL Injection by using prepared statements
+ * Close the connection
+ * 3.4.5 Prepared statements
+ */
 public class QueryForSongInfo {
 
 	public static void main(String[] args) {
