@@ -1,11 +1,10 @@
 package be.pxl.ja2.jdbc;
 
 import java.sql.*;
-
+//Demo2
 public class InsertUpdateDelete {
 
 	public static void main(String[] args) {
-
 		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/musicdb?useSSL=false", "user", "password");
 		     Statement statement = conn.createStatement()) {
 			// conn.setAutoCommit(false);
