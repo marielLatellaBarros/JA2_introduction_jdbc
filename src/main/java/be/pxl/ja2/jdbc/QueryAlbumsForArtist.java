@@ -3,7 +3,11 @@ package be.pxl.ja2.jdbc;
 import be.pxl.ja2.jdbc.model.MusicDatasource;
 
 import java.util.List;
-
+/** Demo4:
+ * Check if connection to database is open
+ * Get a list of all albums by artist, sort ascending
+ * close the connection
+ */
 public class QueryAlbumsForArtist {
 
     public static void main(String[] args) {
