@@ -4,6 +4,11 @@ import be.pxl.ja2.jdbc.dao.Contact;
 import be.pxl.ja2.jdbc.dao.ContactDao;
 import be.pxl.ja2.jdbc.dao.ContactDaoImpl;
 
+/** Demo8:
+ * Use DAO (Data Access Objects) in independent classes "POJO's" (beans), to represent a database entity
+ * and connect to the database
+ *
+ */
 public class UsingContactDao {
 
 	public static void main(String[] args) {
